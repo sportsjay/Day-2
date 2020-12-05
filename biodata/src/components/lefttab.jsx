@@ -1,17 +1,18 @@
 import React, { Fragment } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-import { Toolbar, AppBar, Typography, Card, CardContent, Container, Button } from '@material-ui/core';
+import { Toolbar, AppBar, Container } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    backgroundColor:"rgb(145, 157, 202)",
+    backgroundColor:"#f2dede",
+    color:"#004987"
   },
   appBar: {
-    backgroundColor: theme.palette.primary.dark,
+    backgroundColor:"#004987",
   },
   toolbar: {
-    justifyContent:"center",
+    marginLeft:40
   },
   content: {
     display:"flex",
@@ -25,11 +26,19 @@ const useStyles = makeStyles((theme) => ({
       alignItems:"center",
     }
   },
-  leftcard: {
+  profileText: {
+    [theme.breakpoints.up('md')]: {
+      textAlign:"center",
+      minWidth:"100px",
+      width:"100px"
+    },
+    [theme.breakpoints.down('sm')]:{
+      display:"none"
+    }
+  },
+  profileContent: {
     display: "flex",
     padding: theme.spacing(2),
-    margin: theme.spacing(2),
-    height:"40vh",
     [theme.breakpoints.up('md')]: {
       minWidth:"400px",
       width:"500px",
@@ -39,11 +48,9 @@ const useStyles = makeStyles((theme) => ({
       width:"400px"
     }
   },
-  rightCard: {
+  profileAboutMe: {
     display:"flex",
     padding: theme.spacing(2),
-    margin: theme.spacing(2),
-    height:"40vh",
     [theme.breakpoints.up('md')]: {
       minWidth:"400px",
       width:"700px"
@@ -58,6 +65,7 @@ const useStyles = makeStyles((theme) => ({
 export default function NavigationBar(props) {
 
   const classes = useStyles();
+  const text = ["P","R","O","F","I","L","E"];
 
   const elements = {
     'main': Array(props.mainElement),
@@ -68,18 +76,19 @@ export default function NavigationBar(props) {
     <div className={classes.root}>
       <AppBar className={classes.appBar} position="relative">
         <Toolbar className={classes.toolbar}>
-          {new Array(1,2,3,4).map(item => <Button style={{color:"white", margin:10}} variant="contained" color="primary">{item}</Button>)}
-          <Typography>This is me</Typography>
-          {new Array(5,6,7,8).map(item => <Button style={{color:"white", margin:10}} variant="contained" color="primary">{item}</Button>)}
+          <h1>My Name</h1>
         </Toolbar>
       </AppBar>
       <Container className={classes.content}>
-        <Card className={classes.leftcard}>
+        <Container className={classes.profileText}>
+          {text.map(letter => <h1>{letter}</h1>)}
+        </Container>
+        <Container className={classes.profileContent}>
           {elements['profile'].map(component => <Fragment key={Math.random()*100}>{component}</Fragment>)}
-        </Card>
-        <Card className={classes.rightCard}>
+        </Container>
+        <Container className={classes.profileAboutMe}>
           {elements['main'].map(component => <Fragment key={Math.random()*100}>{component}</Fragment>)}
-        </Card>
+        </Container>
       </Container>
     </div>
   );

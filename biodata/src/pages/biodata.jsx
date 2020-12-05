@@ -6,7 +6,7 @@ import Profile from '../components/profile';
 import Content from '../components/content';
 
 const Biodata = () => {
-
+  
 	return (
     <div>
       <NavigationBar 
