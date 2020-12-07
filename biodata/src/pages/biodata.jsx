@@ -1,7 +1,7 @@
 import React from 'react';
 
 // import components
-import NavigationBar from '../components/lefttab';
+import NavigationBar from '../components/appbar';
 import Profile from '../components/profile';
 import Content from '../components/content';
 
