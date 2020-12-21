@@ -79,17 +79,6 @@ export default function NavigationBar(props) {
           <h1>My Name</h1>
         </Toolbar>
       </AppBar>
-      <Container className={classes.content}>
-        <Container className={classes.profileText}>
-          {text.map(letter => <h1>{letter}</h1>)}
-        </Container>
-        <Container className={classes.profileContent}>
-          {elements['profile'].map(component => <Fragment key={Math.random()*100}>{component}</Fragment>)}
-        </Container>
-        <Container className={classes.profileAboutMe}>
-          {elements['main'].map(component => <Fragment key={Math.random()*100}>{component}</Fragment>)}
-        </Container>
-      </Container>
     </div>
   );
 }
